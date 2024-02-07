@@ -9,6 +9,7 @@ create table clients
 (
     id         varchar(36) primary key,
     name       varchar     not null,
+    username   varchar     not null unique,
     password   varchar     not null,
     account_id varchar(36) not null,
     constraint clients_accounts foreign key (account_id) references accounts (id)

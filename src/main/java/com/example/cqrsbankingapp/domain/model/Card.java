@@ -7,6 +7,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Card {
 
     @Id
@@ -31,5 +33,11 @@ public class Card {
 
     @ManyToOne
     private Account account;
+
+    public Card(
+            final Account account
+    ) {
+        this.account = account;
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.cqrsbankingapp.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import lombok.Getter;
@@ -33,6 +34,14 @@ public class ClientDto {
             message = "Name length must be between {min} and {max}."
     )
     private String name;
+
+    @NotNull(
+            message = "Username must be not null."
+    )
+    @Email(
+            message = "Username length must be between {min} and {max}."
+    )
+    private String username;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

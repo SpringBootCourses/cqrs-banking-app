@@ -1,8 +1,8 @@
 package com.example.cqrsbankingapp.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,12 +23,30 @@ public class TransactionDto {
     )
     private UUID id;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @NotNull(
+            message = "Sender card must be not null.",
+            groups = OnCreate.class
+    )
+    @Null(
+            message = "Sender card must be null."
+    )
     private CardDto from;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @NotNull(
+            message = "Receiver card must be not null.",
+            groups = OnCreate.class
+    )
+    @Null(
+            message = "Receiver card must be null."
+    )
     private CardDto to;
 
+    @NotNull(
+            message = "Amount must be not null."
+    )
+    @Positive(
+            message = "Amount must be positive."
+    )
     private BigDecimal amount;
 
 }

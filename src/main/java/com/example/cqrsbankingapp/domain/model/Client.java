@@ -23,6 +23,7 @@ public class Client {
     private UUID id;
 
     private String name;
+    private String username;
     private String password;
 
     @OneToMany
