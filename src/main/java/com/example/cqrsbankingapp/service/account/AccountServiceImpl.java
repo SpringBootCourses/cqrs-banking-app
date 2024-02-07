@@ -11,12 +11,6 @@ import java.util.UUID;
 public class AccountServiceImpl implements AccountService {
 
     private final AccountQueryService queryService;
-    private final AccountCommandService commandService;
-
-    @Override
-    public void create(Account object) {
-        commandService.create(object);
-    }
 
     @Override
     public Account getById(UUID id) {
