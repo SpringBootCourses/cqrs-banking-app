@@ -14,12 +14,16 @@ public class CardServiceImpl implements CardService {
     private final CardCommandService commandService;
 
     @Override
-    public void create(Card object) {
+    public void create(
+            final Card object
+    ) {
         commandService.create(object);
     }
 
     @Override
-    public Card getById(UUID id) {
+    public Card getById(
+            final UUID id
+    ) {
         return queryService.getById(id);
     }
 

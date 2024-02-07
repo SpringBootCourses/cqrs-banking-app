@@ -13,7 +13,9 @@ public class AccountServiceImpl implements AccountService {
     private final AccountQueryService queryService;
 
     @Override
-    public Account getById(UUID id) {
+    public Account getById(
+            final UUID id
+    ) {
         return queryService.getById(id);
     }
 

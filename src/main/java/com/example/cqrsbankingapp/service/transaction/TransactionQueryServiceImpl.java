@@ -15,7 +15,9 @@ public class TransactionQueryServiceImpl implements TransactionQueryService {
     private final TransactionRepository repository;
 
     @Override
-    public Transaction getById(UUID id) {
+    public Transaction getById(
+            final UUID id
+    ) {
         return repository.findById(id)
                 .orElseThrow(ResourceNotFoundException::new);
     }

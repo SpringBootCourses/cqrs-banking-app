@@ -14,12 +14,16 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionCommandService commandService;
 
     @Override
-    public void create(Transaction object) {
+    public void create(
+            final Transaction object
+    ) {
         commandService.create(object);
     }
 
     @Override
-    public Transaction getById(UUID id) {
+    public Transaction getById(
+            final UUID id
+    ) {
         return queryService.getById(id);
     }
 

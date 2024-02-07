@@ -9,13 +9,15 @@ import lombok.Setter;
 public class CardCreateEvent extends AbstractEvent {
 
     public CardCreateEvent(
-            Object payload
+            final Object payload
     ) {
         super(null, EventType.CARD_CREATE, payload);
     }
 
     @Override
-    public void apply(Aggregate aggregate) {
+    public void apply(
+            final Aggregate aggregate
+    ) {
         //TODO implement
     }
 
