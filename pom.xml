@@ -23,6 +23,7 @@
         <postgresql.version>42.6.0</postgresql.version>
         <lombok.version>1.18.30</lombok.version>
         <liquibase.version>4.25.1</liquibase.version>
+        <checkstyle.version>3.2.2</checkstyle.version>
     </properties>
 
     <dependencies>
@@ -71,6 +72,30 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <configuration>
+                    <configLocation>sun_checks.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <suppressionsFileExpression>suppressions.xml</suppressionsFileExpression>
+                            <suppressionsLocation>suppressions.xml</suppressionsLocation>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

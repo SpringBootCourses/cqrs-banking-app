@@ -16,7 +16,9 @@ public class TransactionCommandServiceImpl
     private final EventService eventService;
 
     @Override
-    public void create(Transaction object) {
+    public void create(
+            final Transaction object
+    ) {
         TransactionCreateEvent event = new TransactionCreateEvent(object);
         eventService.create(event);
     }

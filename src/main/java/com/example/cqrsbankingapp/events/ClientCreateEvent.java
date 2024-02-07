@@ -9,13 +9,15 @@ import lombok.Setter;
 public class ClientCreateEvent extends AbstractEvent {
 
     public ClientCreateEvent(
-            Object payload
+            final Object payload
     ) {
         super(null, EventType.CLIENT_CREATE, payload);
     }
 
     @Override
-    public void apply(Aggregate aggregate) {
+    public void apply(
+            final Aggregate aggregate
+    ) {
         //TODO implement
     }
 
