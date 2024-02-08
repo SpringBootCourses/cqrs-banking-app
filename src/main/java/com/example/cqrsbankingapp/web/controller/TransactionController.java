@@ -32,7 +32,7 @@ public class TransactionController {
     public void create(
             @RequestBody @Validated(OnCreate.class) final TransactionDto dto
     ) {
-        if(!cardService.existsByNumberAndDate(
+        if (!cardService.existsByNumberAndDate(
                 dto.getTo().getNumber(),
                 dto.getTo().getDate())
         ) {
