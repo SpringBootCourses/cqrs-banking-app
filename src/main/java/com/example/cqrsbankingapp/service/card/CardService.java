@@ -11,4 +11,15 @@ public interface CardService
 
     void createByClientId(UUID clientId);
 
+    boolean existsByNumberAndDate(
+            String number,
+            String date
+    );
+
+    Card getByNumberAndDateAndCvv(
+            String number,
+            String date,
+            String cvv
+    );
+
 }

@@ -9,6 +9,7 @@ import com.example.cqrsbankingapp.web.dto.mapper.AccountMapper;
 import com.example.cqrsbankingapp.web.dto.mapper.CardMapper;
 import com.example.cqrsbankingapp.web.dto.mapper.ClientMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class ClientController {
     private final AccountMapper accountMapper;
 
     @GetMapping("/{id}")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public ClientDto getById(
             @PathVariable final UUID id
     ) {
@@ -36,6 +38,7 @@ public class ClientController {
     }
 
     @GetMapping("/{id}/cards")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public List<CardDto> getCardsById(
             @PathVariable final UUID id
     ) {
@@ -44,6 +47,7 @@ public class ClientController {
     }
 
     @GetMapping("/{id}/account")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public AccountDto getAccountById(
             @PathVariable final UUID id
     ) {

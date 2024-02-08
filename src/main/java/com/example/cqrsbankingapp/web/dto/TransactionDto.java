@@ -1,5 +1,6 @@
 package com.example.cqrsbankingapp.web.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Positive;
@@ -30,6 +31,7 @@ public class TransactionDto {
     @Null(
             message = "Sender card must be null."
     )
+    @Valid
     private CardDto from;
 
     @NotNull(
@@ -39,6 +41,7 @@ public class TransactionDto {
     @Null(
             message = "Receiver card must be null."
     )
+    @Valid
     private CardDto to;
 
     @NotNull(

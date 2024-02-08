@@ -1,5 +1,7 @@
 package com.example.cqrsbankingapp.events;
 
+import com.example.cqrsbankingapp.domain.model.ObjectConverter;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -27,14 +30,17 @@ public abstract class AbstractEvent implements Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID aggregateId;
 
     @Enumerated(EnumType.STRING)
     private EventType type;
 
+    @CreationTimestamp
     private LocalDateTime timestamp;
 
     @JdbcTypeCode(SqlTypes.JSON)
+    @Convert(converter = ObjectConverter.class)
     private Object payload;
 
     public AbstractEvent(

@@ -11,3 +11,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    access: ${JWT_ACCESS_DURATION}
+    refresh: ${JWT_REFRESH_DURATION}
