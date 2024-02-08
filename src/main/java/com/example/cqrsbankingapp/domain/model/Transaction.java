@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Table(name = "transactions")
@@ -25,5 +26,7 @@ public class Transaction {
 
     @ManyToOne
     private Card to;
+
+    private BigDecimal amount;
 
 }
