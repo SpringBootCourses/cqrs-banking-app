@@ -26,13 +26,13 @@ create table cards
     constraint cards_accounts foreign key (account_id) references accounts (id)
 );
 
-create table client_cards
+create table clients_cards
 (
     client_id varchar(36) not null,
     card_id   varchar(36) not null,
-    constraint client_cards_unique unique (client_id, card_id),
-    constraint client_cards_clients foreign key (client_id) references clients (id),
-    constraint client_cards_cards foreign key (card_id) references cards (id)
+    constraint clients_cards_unique unique (client_id, card_id),
+    constraint clients_cards_clients foreign key (client_id) references clients (id),
+    constraint clients_cards_cards foreign key (card_id) references cards (id)
 );
 
 create table transactions

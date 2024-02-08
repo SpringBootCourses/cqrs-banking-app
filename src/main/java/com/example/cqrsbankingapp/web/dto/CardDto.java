@@ -1,12 +1,10 @@
 package com.example.cqrsbankingapp.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -23,19 +21,25 @@ public class CardDto {
     )
     private UUID id;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @NotNull(
+            message = "Number must be not null.",
+            groups = OnCreate.class
+    )
+    @Null(message = "Number must be null.")
     private String number;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @NotNull(
+            message = "Date must be not null.",
+            groups = OnCreate.class
+    )
+    @Null(message = "Date must be null.")
     private String date;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @NotNull(
+            message = "Cvv must be not null.",
+            groups = OnCreate.class
+    )
+    @Null(message = "Cvv must be null.")
     private String cvv;
-
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private List<TransactionDto> transactions;
-
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private AccountDto account;
 
 }

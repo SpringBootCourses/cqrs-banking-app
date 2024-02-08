@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -43,10 +42,11 @@ public class ClientDto {
     )
     private String username;
 
+    @NotNull(
+            message = "Password must be not null.",
+            groups = OnCreate.class
+    )
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private List<CardDto> cards;
 
 }
