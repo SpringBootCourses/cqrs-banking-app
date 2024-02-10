@@ -70,7 +70,9 @@ public class ControllerAdvice {
                 .getFieldErrors().stream()
                 .collect(Collectors.toMap(
                         FieldError::getField,
-                        DefaultMessageSourceResolvable::getDefaultMessage
+                        DefaultMessageSourceResolvable::getDefaultMessage,
+                        (existingMessage, newMessage) ->
+                                existingMessage + " " + newMessage
                 ));
         return new MessageDto(
                 "Validation failed.",
