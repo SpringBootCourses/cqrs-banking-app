@@ -10,7 +10,6 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -18,7 +17,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Transaction implements Serializable {
+public class Transaction {
 
     @Id
     @GeneratedValue
