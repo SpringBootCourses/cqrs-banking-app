@@ -34,17 +34,21 @@ public class ClientDto {
     )
     private String name;
 
+    @Email(
+            message = "Username must be a valid email."
+    )
     @NotNull(
             message = "Username must be not null."
     )
-    @Email(
+    @Length(
+            min = 1,
+            max = 255,
             message = "Username length must be between {min} and {max}."
     )
     private String username;
 
     @NotNull(
-            message = "Password must be not null.",
-            groups = OnCreate.class
+            message = "Password must be not null."
     )
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

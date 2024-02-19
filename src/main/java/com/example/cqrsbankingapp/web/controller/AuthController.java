@@ -32,7 +32,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public LoginResponseDto login(
-            @RequestBody @Validated(OnCreate.class) final LoginRequestDto dto
+            @RequestBody @Validated final LoginRequestDto dto
     ) {
         return authService.login(dto);
     }

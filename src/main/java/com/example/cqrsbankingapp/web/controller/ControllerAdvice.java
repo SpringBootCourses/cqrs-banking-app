@@ -61,9 +61,9 @@ public class ControllerAdvice {
         return new MessageDto("Access denied.");
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler
-    public MessageDto validationException(
+    public MessageDto validation(
             final MethodArgumentNotValidException e
     ) {
         Map<String, String> errors = e.getBindingResult()
