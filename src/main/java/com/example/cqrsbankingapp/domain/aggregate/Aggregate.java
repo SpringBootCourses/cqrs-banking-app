@@ -9,7 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Aggregate {
+public abstract class Aggregate {
 
     private UUID id;
 
