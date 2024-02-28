@@ -9,6 +9,17 @@ volumes:
     driver: local
 
 services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    networks:
+      - banking
+    depends_on:
+      - postgres
+
   postgres:
     image: 'postgres:15.1-alpine'
     ports:
