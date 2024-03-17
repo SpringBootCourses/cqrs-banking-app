@@ -16,7 +16,7 @@ volumes:
 
 services:
   backend:
-    build: .
+    image: ilyalisov/cqrs-banking-app
     ports:
       - "8080:8080"
     env_file:
