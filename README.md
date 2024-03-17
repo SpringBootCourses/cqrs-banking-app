@@ -28,9 +28,7 @@ you need to run `docker-compose up -d` command.
 
 Application is running on port `8080`.
 
-You can access endpoints and make requests to the application. Events will be
-stored in the database and processed
-in [processing app](https://github.com/springbootcourses/cqrs-banking-proccessing-app).
+You can access endpoints and make requests to the application.
 
 ## How to contribute
 
