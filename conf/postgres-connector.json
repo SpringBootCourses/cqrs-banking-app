@@ -1,0 +1,22 @@
+{
+  "name": "pg-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "tasks.max": "1",
+    "topic.prefix": "pg-replica",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "banking",
+    "database.server.id": "184054",
+    "table.include.list": "public.events",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "transforms": "unwrap,route",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+    "transforms.route.replacement": "$3"
+  }
+}
