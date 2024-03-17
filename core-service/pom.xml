@@ -7,7 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>core-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cqrs-banking-app</name>
+    <name>core-service</name>
     <description>Core service of CQRS and Event Sourcing app</description>
 
     <parent>
