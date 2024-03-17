@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:postgresql://${HOST}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    access: ${JWT_ACCESS_DURATION}
+    refresh: ${JWT_REFRESH_DURATION}
