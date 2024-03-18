@@ -16,7 +16,8 @@ volumes:
 
 services:
   backend:
-    build: ./core-service
+    build:
+      dockerfile: core.Dockerfile
     ports:
       - "8080:8080"
     env_file:
