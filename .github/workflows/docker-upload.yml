@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      include:
-        - image: ${{ secrets.DOCKERHUB_USERNAME }}/cqrs-banking-app
-          dockerfile: core-service/Dockerfile
+        include:
+          - image: ${{ secrets.DOCKERHUB_USERNAME }}/cqrs-banking-app
+            dockerfile: core-service/Dockerfile
     steps:
       - name: Checkout
         uses: actions/checkout@v3
