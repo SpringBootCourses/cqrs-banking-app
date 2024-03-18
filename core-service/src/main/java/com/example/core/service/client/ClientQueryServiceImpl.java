@@ -1,8 +1,8 @@
 package com.example.core.service.client;
 
-import com.example.core.domain.exception.ResourceNotFoundException;
-import com.example.core.domain.model.Client;
-import com.example.core.repository.ClientRepository;
+import com.example.common.domain.exception.ResourceNotFoundException;
+import com.example.common.domain.model.Client;
+import com.example.common.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
