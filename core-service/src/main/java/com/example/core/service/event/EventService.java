@@ -1,6 +1,6 @@
 package com.example.core.service.event;
 
-import com.example.core.events.AbstractEvent;
+import com.example.common.events.AbstractEvent;
 
 public interface EventService {
 

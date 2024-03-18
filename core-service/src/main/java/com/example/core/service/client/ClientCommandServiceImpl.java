@@ -1,7 +1,7 @@
 package com.example.core.service.client;
 
-import com.example.core.domain.model.Client;
-import com.example.core.events.ClientCreateEvent;
+import com.example.common.domain.model.Client;
+import com.example.common.events.ClientCreateEvent;
 import com.example.core.service.event.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

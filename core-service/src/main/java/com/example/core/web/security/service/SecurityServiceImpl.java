@@ -1,9 +1,9 @@
 package com.example.core.web.security.service;
 
-import com.example.core.domain.exception.ResourceNotFoundException;
-import com.example.core.domain.model.Card;
-import com.example.core.domain.model.Client;
-import com.example.core.domain.model.Transaction;
+import com.example.common.domain.exception.ResourceNotFoundException;
+import com.example.common.domain.model.Card;
+import com.example.common.domain.model.Client;
+import com.example.common.domain.model.Transaction;
 import com.example.core.service.card.CardService;
 import com.example.core.service.client.ClientService;
 import com.example.core.service.transaction.TransactionService;

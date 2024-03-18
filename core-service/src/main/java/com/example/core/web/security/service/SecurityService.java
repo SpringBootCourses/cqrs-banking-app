@@ -1,6 +1,6 @@
 package com.example.core.web.security.service;
 
-import com.example.core.domain.model.Card;
+import com.example.common.domain.model.Card;
 import com.example.core.web.security.SecurityUser;
 
 import java.util.UUID;

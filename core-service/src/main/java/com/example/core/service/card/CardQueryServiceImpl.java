@@ -1,8 +1,8 @@
 package com.example.core.service.card;
 
-import com.example.core.domain.exception.ResourceNotFoundException;
-import com.example.core.domain.model.Card;
-import com.example.core.repository.CardRepository;
+import com.example.common.domain.exception.ResourceNotFoundException;
+import com.example.common.domain.model.Card;
+import com.example.common.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
