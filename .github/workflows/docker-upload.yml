@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: ${{ secrets.DOCKERHUB_USERNAME }}/cqrs-banking-app
+          - image: ilyalisov/cqrs-banking-app
             dockerfile: core-service/Dockerfile
     steps:
       - name: Checkout
