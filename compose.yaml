@@ -7,10 +7,16 @@ networks:
 volumes:
   db-data:
     driver: local
+  kafka-data:
+    driver: local
+  zookeeper-data:
+    driver: local
+  debezium-data:
+    driver: local
 
 services:
   backend:
-    build: .
+    build: ./core-service
     ports:
       - "8080:8080"
     env_file:
@@ -26,7 +32,61 @@ services:
       - "5437:5432"
     env_file:
       - .env
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
     networks:
       - banking
     volumes:
       - db-data:/var/lib/postgresql/data
+
+  zookeeper:
+    image: 'confluentinc/cp-zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=${ZOOKEEPER_CLIENT_PORT}
+      - ZOOKEEPER_TICK_TIME=${ZOOKEEPER_TICK_TIME}
+    networks:
+      - banking
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+
+  kafka:
+    image: 'confluentinc/cp-kafka:latest'
+    ports:
+      - '9092:9092'
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=${KAFKA_BROKER_ID}
+      - KAFKA_ZOOKEEPER_CONNECT=${KAFKA_ZOOKEEPER_CONNECT}
+      - KAFKA_ADVERTISED_LISTENERS=${KAFKA_ADVERTISED_LISTENERS}
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=${KAFKA_LISTENER_SECURITY_PROTOCOL_MAP}
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=${KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR}
+    networks:
+      - banking
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  debezium:
+    image: debezium/connect:2.4.0.Final
+    depends_on:
+      - kafka
+    environment:
+      - BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
+      - GROUP_ID=${DEBEZIUM_KAFKA_BROKER_ID}
+      - CONFIG_STORAGE_TOPIC=my_connect_configs
+      - OFFSET_STORAGE_TOPIC=my_connect_offsets
+      - STATUS_STORAGE_TOPIC=my_connect_statuses
+    user: root
+#    command:
+#      - bash
+#      - -c
+#      - "cd /on-startup; ls; ./run.sh"
+    networks:
+      - banking
+    volumes:
+      - debezium-data:/debezium/data
+      - ./conf/:/on-startup/
