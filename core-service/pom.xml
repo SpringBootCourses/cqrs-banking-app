@@ -20,7 +20,7 @@
     <properties>
         <java.version>17</java.version>
         <liquibase.version>4.25.1</liquibase.version>
-        <postgresql.version>42.6.0</postgresql.version>
+        <postgresql.version>42.7.3</postgresql.version>
         <lombok.version>1.18.30</lombok.version>
         <liquibase.version>4.25.1</liquibase.version>
         <checkstyle.version>3.2.2</checkstyle.version>
