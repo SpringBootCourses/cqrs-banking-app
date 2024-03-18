@@ -1,7 +1,7 @@
 package com.example.core.service.card;
 
-import com.example.core.domain.model.Card;
-import com.example.core.domain.model.Client;
+import com.example.common.domain.model.Card;
+import com.example.common.domain.model.Client;
 import com.example.core.service.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

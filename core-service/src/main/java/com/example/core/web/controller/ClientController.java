@@ -1,6 +1,6 @@
 package com.example.core.web.controller;
 
-import com.example.core.domain.model.Client;
+import com.example.common.domain.model.Client;
 import com.example.core.service.client.ClientService;
 import com.example.core.web.dto.AccountDto;
 import com.example.core.web.dto.CardDto;

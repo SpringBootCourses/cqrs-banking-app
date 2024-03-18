@@ -1,7 +1,7 @@
 package com.example.core.web.controller;
 
-import com.example.core.domain.exception.ResourceAlreadyExistsException;
-import com.example.core.domain.exception.ResourceNotFoundException;
+import com.example.common.domain.exception.ResourceAlreadyExistsException;
+import com.example.common.domain.exception.ResourceNotFoundException;
 import com.example.core.web.dto.MessageDto;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;

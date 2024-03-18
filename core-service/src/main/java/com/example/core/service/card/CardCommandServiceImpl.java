@@ -1,7 +1,7 @@
 package com.example.core.service.card;
 
-import com.example.core.domain.model.Card;
-import com.example.core.events.CardCreateEvent;
+import com.example.common.domain.model.Card;
+import com.example.common.events.CardCreateEvent;
 import com.example.core.service.event.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

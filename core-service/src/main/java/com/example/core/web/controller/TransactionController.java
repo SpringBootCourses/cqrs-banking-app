@@ -1,6 +1,6 @@
 package com.example.core.web.controller;
 
-import com.example.core.domain.model.Transaction;
+import com.example.common.domain.model.Transaction;
 import com.example.core.service.card.CardService;
 import com.example.core.service.transaction.TransactionService;
 import com.example.core.web.dto.OnCreate;

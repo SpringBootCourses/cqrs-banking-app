@@ -1,6 +1,6 @@
 package com.example.core.web.security;
 
-import com.example.core.domain.model.Client;
+import com.example.common.domain.model.Client;
 import com.example.core.service.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;

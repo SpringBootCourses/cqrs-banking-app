@@ -1,8 +1,8 @@
 package com.example.core.service.transaction;
 
-import com.example.core.domain.exception.ResourceNotFoundException;
-import com.example.core.domain.model.Transaction;
-import com.example.core.repository.TransactionRepository;
+import com.example.common.domain.exception.ResourceNotFoundException;
+import com.example.common.domain.model.Transaction;
+import com.example.common.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

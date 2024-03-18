@@ -1,6 +1,6 @@
 package com.example.core.service.card;
 
-import com.example.core.domain.model.Card;
+import com.example.common.domain.model.Card;
 import com.example.core.service.QueryService;
 
 public interface CardQueryService extends QueryService<Card> {

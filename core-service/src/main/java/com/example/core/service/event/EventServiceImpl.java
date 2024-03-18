@@ -1,7 +1,7 @@
 package com.example.core.service.event;
 
-import com.example.core.events.AbstractEvent;
-import com.example.core.repository.EventRepository;
+import com.example.common.events.AbstractEvent;
+import com.example.common.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

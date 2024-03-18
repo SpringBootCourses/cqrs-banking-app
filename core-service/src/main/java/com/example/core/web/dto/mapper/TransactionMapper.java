@@ -1,6 +1,6 @@
 package com.example.core.web.dto.mapper;
 
-import com.example.core.domain.model.Transaction;
+import com.example.common.domain.model.Transaction;
 import com.example.core.web.dto.TransactionDto;
 import org.mapstruct.Mapper;
 

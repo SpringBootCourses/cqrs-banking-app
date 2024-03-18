@@ -1,6 +1,6 @@
 package com.example.core.web.security;
 
-import com.example.core.domain.model.Client;
+import com.example.common.domain.model.Client;
 import lombok.Data;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

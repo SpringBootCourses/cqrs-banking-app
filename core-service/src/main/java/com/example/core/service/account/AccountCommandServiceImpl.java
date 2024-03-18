@@ -1,7 +1,7 @@
 package com.example.core.service.account;
 
-import com.example.core.domain.model.Account;
-import com.example.core.events.AccountCreateEvent;
+import com.example.common.domain.model.Account;
+import com.example.common.events.AccountCreateEvent;
 import com.example.core.service.event.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

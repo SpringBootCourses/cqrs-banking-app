@@ -1,6 +1,6 @@
 package com.example.core.web.dto.mapper;
 
-import com.example.core.domain.model.Card;
+import com.example.common.domain.model.Card;
 import com.example.core.web.dto.CardDto;
 import org.mapstruct.Mapper;
 

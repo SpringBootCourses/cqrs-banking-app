@@ -1,6 +1,6 @@
 package com.example.core.service.account;
 
-import com.example.core.domain.model.Account;
+import com.example.common.domain.model.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
