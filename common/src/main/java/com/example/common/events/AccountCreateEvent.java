@@ -23,7 +23,6 @@ public class AccountCreateEvent extends AbstractEvent {
     public void apply(
             final Aggregate aggregate
     ) {
-        //TODO implement
     }
 
 }

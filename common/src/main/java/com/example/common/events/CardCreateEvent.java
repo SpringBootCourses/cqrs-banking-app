@@ -23,7 +23,6 @@ public class CardCreateEvent extends AbstractEvent {
     public void apply(
             final Aggregate aggregate
     ) {
-        //TODO implement
     }
 
 }
