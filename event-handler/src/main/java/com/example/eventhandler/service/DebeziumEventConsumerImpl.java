@@ -1,36 +1,42 @@
 package com.example.eventhandler.service;
 
-import com.example.common.events.EventType;
 import com.example.eventhandler.handler.EventHandler;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class DebeziumEventConsumerImpl implements CDCEventConsumer {
 
-    private final Map<EventType, EventHandler> factories;
+    private final Map<String, EventHandler> factories;
 
     @KafkaListener(topics = "events")
     public void process(
-            final String message
+            final String payload,
+            final Acknowledgment acknowledgment
     ) {
         try {
-            JsonObject json = JsonParser.parseString(message)
+            log.info("Received message: {}", payload);
+            JsonObject json = JsonParser.parseString(payload)
                     .getAsJsonObject()
                     .get("payload")
                     .getAsJsonObject();
-            EventType type = EventType.valueOf(
-                    json.get("dtype")
-                            .getAsString()
-            );
+            String type = json.get("type")
+                    .getAsString();
+            //TODO String cant be cast to CLient
             factories.get(type)
-                    .handle(json);
+                    .handle(
+                            json,
+                            acknowledgment
+                    );
         } catch (Exception e) {
             e.printStackTrace();
         }

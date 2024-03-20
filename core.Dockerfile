@@ -1,7 +1,9 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
-COPY core-service/ core-service/
+COPY event-handler/ event-handler/
 COPY common/ common/
+COPY core-service/ core-service/
+COPY suppressions.xml .
 COPY pom.xml .
 RUN mvn -f pom.xml clean package
 

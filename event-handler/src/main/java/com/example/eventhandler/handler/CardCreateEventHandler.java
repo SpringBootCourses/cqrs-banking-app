@@ -6,6 +6,7 @@ import com.example.eventhandler.service.card.CardService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 @Component("CARD_CREATE")
@@ -13,18 +14,20 @@ import org.springframework.stereotype.Component;
 public class CardCreateEventHandler implements EventHandler {
 
     private final CardService cardService;
+    private final Gson gson;
 
     @Override
     public void handle(
-            final JsonObject object
+            final JsonObject object,
+            final Acknowledgment acknowledgment
     ) {
-        Gson gson = new Gson();
         CardCreateEvent event = gson.fromJson(
                 object,
                 CardCreateEvent.class
         );
         Card card = (Card) event.getPayload();
         cardService.create(card);
+        acknowledgment.acknowledge();
     }
 
 }
