@@ -18,6 +18,10 @@ in [this document](https://docs.google.com/document/d/1-TTxft3nS5C11puQ1LMLj3ZEt
 
 ![Event Sourcing](docs/event-sourcing.png)
 
+## Change Data Capture
+
+![CDC](docs/cdc.png)
+
 ## Usage
 
 To start an application you need to pass variables to `.env` file. Look
