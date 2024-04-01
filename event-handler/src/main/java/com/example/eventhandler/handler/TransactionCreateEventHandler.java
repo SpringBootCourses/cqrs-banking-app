@@ -25,7 +25,10 @@ public class TransactionCreateEventHandler implements EventHandler {
                 object,
                 TransactionCreateEvent.class
         );
-        Transaction transaction = (Transaction) event.getPayload();
+        Transaction transaction = gson.fromJson(
+                (String) event.getPayload(),
+                Transaction.class
+        );
         transactionService.create(transaction);
         acknowledgment.acknowledge();
     }

@@ -25,7 +25,10 @@ public class CardCreateEventHandler implements EventHandler {
                 object,
                 CardCreateEvent.class
         );
-        Card card = (Card) event.getPayload();
+        Card card = gson.fromJson(
+                (String) event.getPayload(),
+                Card.class
+        );
         cardService.create(card);
         acknowledgment.acknowledge();
     }

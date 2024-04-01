@@ -31,7 +31,6 @@ public class DebeziumEventConsumerImpl implements CDCEventConsumer {
                     .getAsJsonObject();
             String type = json.get("type")
                     .getAsString();
-            //TODO String cant be cast to CLient
             factories.get(type)
                     .handle(
                             json,

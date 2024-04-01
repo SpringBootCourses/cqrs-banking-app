@@ -25,7 +25,10 @@ public class ClientCreateEventHandler implements EventHandler {
                 object,
                 ClientCreateEvent.class
         );
-        Client client = (Client) event.getPayload();
+        Client client = gson.fromJson(
+                (String) event.getPayload(),
+                Client.class
+        );
         clientService.create(client);
         acknowledgment.acknowledge();
     }

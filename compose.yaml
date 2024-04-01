@@ -44,7 +44,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - HOST=${HOST}
+      - HOST=postgres:5432
     networks:
       - banking
     depends_on:
@@ -87,9 +87,11 @@ services:
     environment:
       - KAFKA_BROKER_ID=${KAFKA_BROKER_ID}
       - KAFKA_ZOOKEEPER_CONNECT=${KAFKA_ZOOKEEPER_CONNECT}
+      - KAFKA_LISTENERS=${KAFKA_LISTENERS}
       - KAFKA_ADVERTISED_LISTENERS=${KAFKA_ADVERTISED_LISTENERS}
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=${KAFKA_LISTENER_SECURITY_PROTOCOL_MAP}
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=${KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR}
+      - KAFKA_INTER_BROKER_LISTENER_NAME=LOCAL
     networks:
       - banking
     volumes:
@@ -101,7 +103,7 @@ services:
       - kafka
     environment:
       - BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
-      - GROUP_ID=${DEBEZIUM_KAFKA_BROKER_ID}
+      - GROUP_ID=${DEBEZIUM_GROUP_ID}
       - CONFIG_STORAGE_TOPIC=my_connect_configs
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
       - STATUS_STORAGE_TOPIC=my_connect_statuses

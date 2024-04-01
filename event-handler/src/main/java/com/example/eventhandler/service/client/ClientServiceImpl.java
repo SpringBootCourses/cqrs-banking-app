@@ -4,6 +4,7 @@ import com.example.common.domain.model.Account;
 import com.example.common.domain.model.Client;
 import com.example.common.repository.ClientRepository;
 import com.example.eventhandler.service.account.AccountService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class ClientServiceImpl implements ClientService {
     private final AccountService accountService;
 
     @Override
+    @Transactional
     public Client create(
             final Client client
     ) {

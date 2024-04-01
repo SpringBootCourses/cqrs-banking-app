@@ -25,7 +25,10 @@ public class AccountCreateEventHandler implements EventHandler {
                 object,
                 AccountCreateEvent.class
         );
-        Account account = (Account) event.getPayload();
+        Account account = gson.fromJson(
+                (String) event.getPayload(),
+                Account.class
+        );
         accountService.create(account);
         acknowledgment.acknowledge();
     }
