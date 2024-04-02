@@ -4,15 +4,3 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "maven"
-    directory: "common/"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "maven"
-    directory: "core-service/"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "maven"
-    directory: "event-handler/"
-    schedule:
-      interval: "weekly"
