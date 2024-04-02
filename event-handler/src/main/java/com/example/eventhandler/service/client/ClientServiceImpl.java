@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
-    private final ClientRepository clientRepository;
+    private final ClientRepository repository;
     private final AccountService accountService;
 
     @Override
@@ -23,7 +23,7 @@ public class ClientServiceImpl implements ClientService {
         Account account = new Account();
         account = accountService.create(account);
         client.setAccount(account);
-        return clientRepository.save(client);
+        return repository.save(client);
     }
 
 }

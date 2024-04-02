@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CardServiceImpl implements CardService {
 
-    private final CardRepository cardRepository;
+    private final CardRepository repository;
 
     @Override
     public Card create(
             final Card card
     ) {
-        return cardRepository.save(card);
+        //TODO set date cvv and number
+        return repository.save(card);
     }
 
 }

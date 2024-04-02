@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
 
-    private final TransactionRepository transactionRepository;
+    private final TransactionRepository repository;
 
     @Override
     public Transaction create(
             final Transaction transaction
     ) {
-        return transactionRepository.save(transaction);
+        //TODO change balance of card accounts
+        return repository.save(transaction);
     }
 
 }

@@ -101,7 +101,7 @@ services:
     depends_on:
       - kafka
     environment:
-      - BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
+      - BOOTSTRAP_SERVERS=kafka:9092
       - GROUP_ID=${DEBEZIUM_GROUP_ID}
       - CONFIG_STORAGE_TOPIC=my_connect_configs
       - OFFSET_STORAGE_TOPIC=my_connect_offsets

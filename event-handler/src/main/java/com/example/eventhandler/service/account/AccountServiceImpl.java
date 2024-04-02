@@ -12,7 +12,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
-    private final AccountRepository accountRepository;
+    private final AccountRepository repository;
 
     @Override
     public Account create(
@@ -20,7 +20,7 @@ public class AccountServiceImpl implements AccountService {
     ) {
         account.setBalance(BigDecimal.ZERO);
         account.setNumber(UUID.randomUUID().toString());
-        return accountRepository.save(account);
+        return repository.save(account);
     }
 
 }

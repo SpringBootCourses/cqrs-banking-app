@@ -14,10 +14,11 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class DebeziumEventConsumerImpl implements CDCEventConsumer {
+public class DebeziumEventConsumer implements CDCEventConsumer {
 
     private final Map<String, EventHandler> factories;
 
+    @Override
     @KafkaListener(topics = "events")
     public void process(
             final String payload,
