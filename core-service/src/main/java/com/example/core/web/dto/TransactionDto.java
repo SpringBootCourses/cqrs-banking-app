@@ -28,9 +28,6 @@ public class TransactionDto {
             message = "Sender card must be not null.",
             groups = OnCreate.class
     )
-    @Null(
-            message = "Sender card must be null."
-    )
     @Valid
     private CardDto from;
 
@@ -38,17 +35,16 @@ public class TransactionDto {
             message = "Receiver card must be not null.",
             groups = OnCreate.class
     )
-    @Null(
-            message = "Receiver card must be null."
-    )
     @Valid
     private CardDto to;
 
     @NotNull(
-            message = "Amount must be not null."
+            message = "Amount must be not null.",
+            groups = OnCreate.class
     )
     @Positive(
-            message = "Amount must be positive."
+            message = "Amount must be positive.",
+            groups = OnCreate.class
     )
     private BigDecimal amount;
 

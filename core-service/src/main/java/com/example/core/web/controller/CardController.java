@@ -10,6 +10,7 @@ import com.example.core.web.security.SecurityUser;
 import com.example.core.web.security.service.SecurityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/cards")
 @RequiredArgsConstructor
+@Validated
 public class CardController {
 
     private final CardService cardService;
