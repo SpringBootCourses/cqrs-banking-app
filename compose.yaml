@@ -39,7 +39,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - KAFKA_BROKER_ID=${KAFKA_BROKER_ID}
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
