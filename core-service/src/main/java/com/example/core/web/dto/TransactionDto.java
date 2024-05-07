@@ -35,7 +35,6 @@ public class TransactionDto {
             message = "Receiver card must be not null.",
             groups = OnCreate.class
     )
-    @Valid
     private CardDto to;
 
     @NotNull(

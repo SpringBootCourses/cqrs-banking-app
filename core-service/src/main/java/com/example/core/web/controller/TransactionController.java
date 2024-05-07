@@ -37,7 +37,7 @@ public class TransactionController {
                 dto.getTo().getNumber(),
                 dto.getTo().getDate())
         ) {
-            throw new IllegalStateException("Card does not exists.");
+            throw new IllegalStateException("Card does not exist.");
         }
         Transaction transaction = transactionMapper.fromDto(dto);
         transactionService.create(transaction);
