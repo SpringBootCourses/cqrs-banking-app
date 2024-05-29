@@ -30,6 +30,8 @@ public class CardCreateEventHandler implements EventHandler {
                 Card.class
         );
         cardService.create(card);
+        //TODO add card to client
+//        clientService.addCard(card.getAccount().getId(), card.getId());
         acknowledgment.acknowledge();
     }
 

@@ -22,4 +22,9 @@ public interface CardService
             String cvv
     );
 
+    Card getByNumberAndDate(
+            String number,
+            String date
+    );
+
 }

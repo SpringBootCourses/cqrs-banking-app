@@ -16,4 +16,9 @@ public interface CardQueryService extends QueryService<Card> {
             String cvv
     );
 
+    Card getByNumberAndDate(
+            String number,
+            String date
+    );
+
 }

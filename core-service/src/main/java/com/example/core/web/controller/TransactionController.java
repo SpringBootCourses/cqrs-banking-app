@@ -29,7 +29,7 @@ public class TransactionController {
     private final TransactionMapper transactionMapper;
 
     @PostMapping
-    @PreAuthorize("ssi.canAccessCard(#dto.from)")
+    @PreAuthorize("@ssi.canAccessCard(#dto.from)")
     public void create(
             @RequestBody @Validated(OnCreate.class) final TransactionDto dto
     ) {

@@ -1,6 +1,6 @@
 package com.example.core.web.security.service;
 
-import com.example.common.domain.model.Card;
+import com.example.core.web.dto.CardDto;
 import com.example.core.web.security.SecurityUser;
 
 import java.util.UUID;
@@ -13,7 +13,7 @@ public interface SecurityService {
 
     boolean canAccessCard(UUID cardId);
 
-    boolean canAccessCard(Card card);
+    boolean canAccessCard(CardDto card);
 
     boolean canAccessTransaction(UUID transactionId);
 

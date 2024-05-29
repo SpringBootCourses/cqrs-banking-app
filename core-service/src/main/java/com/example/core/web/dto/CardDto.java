@@ -23,19 +23,27 @@ public class CardDto {
 
     @NotNull(
             message = "Number must be not null.",
-            groups = OnCreate.class
+            groups = {
+                    OnCreate.class,
+                    OnTransactionFrom.class,
+                    OnTransactionTo.class
+            }
     )
     private String number;
 
     @NotNull(
             message = "Date must be not null.",
-            groups = OnCreate.class
+            groups = {OnCreate.class, OnTransactionFrom.class}
     )
     private String date;
 
     @NotNull(
             message = "Cvv must be not null.",
-            groups = OnCreate.class
+            groups = {OnCreate.class, OnTransactionFrom.class}
+    )
+    @Null(
+            message = "Cvv must be null.",
+            groups = OnTransactionTo.class
     )
     private String cvv;
 

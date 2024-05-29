@@ -19,4 +19,9 @@ public interface CardRepository extends JpaRepository<Card, UUID> {
             String cvv
     );
 
+    Optional<Card> findByNumberAndDate(
+            String number,
+            String date
+    );
+
 }

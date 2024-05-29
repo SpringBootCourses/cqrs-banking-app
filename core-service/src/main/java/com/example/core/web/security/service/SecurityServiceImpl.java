@@ -7,6 +7,7 @@ import com.example.common.domain.model.Transaction;
 import com.example.core.service.card.CardService;
 import com.example.core.service.client.ClientService;
 import com.example.core.service.transaction.TransactionService;
+import com.example.core.web.dto.CardDto;
 import com.example.core.web.security.SecurityUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -59,7 +60,7 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public boolean canAccessCard(
-            final Card card
+            final CardDto card
     ) {
         try {
             Card foundCard = cardService.getByNumberAndDateAndCvv(

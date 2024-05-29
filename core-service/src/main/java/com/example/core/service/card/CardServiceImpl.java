@@ -56,4 +56,12 @@ public class CardServiceImpl implements CardService {
         return queryService.getByNumberAndDateAndCvv(number, date, cvv);
     }
 
+    @Override
+    public Card getByNumberAndDate(
+            final String number,
+            final String date
+    ) {
+        return queryService.getByNumberAndDate(number, date);
+    }
+
 }
