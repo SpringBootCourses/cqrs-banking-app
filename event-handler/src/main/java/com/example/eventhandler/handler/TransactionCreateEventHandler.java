@@ -30,7 +30,6 @@ public class TransactionCreateEventHandler implements EventHandler {
                 Transaction.class
         );
         transactionService.create(transaction);
-        //TODO add transaction to card
         acknowledgment.acknowledge();
     }
 

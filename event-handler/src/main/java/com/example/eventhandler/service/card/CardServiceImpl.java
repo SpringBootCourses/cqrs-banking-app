@@ -2,7 +2,10 @@ package com.example.eventhandler.service.card;
 
 import com.example.common.domain.exception.ResourceNotFoundException;
 import com.example.common.domain.model.Card;
+import com.example.common.domain.model.Client;
 import com.example.common.repository.CardRepository;
+import com.example.common.service.client.ClientQueryService;
+import com.example.eventhandler.service.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import java.util.UUID;
 
 @Service
@@ -18,6 +20,8 @@ import java.util.UUID;
 public class CardServiceImpl implements CardService {
 
     private final CardRepository repository;
+    private final ClientQueryService clientQueryService;
+    private final ClientService clientService;
 
     @Override
     public Card getById(
@@ -34,7 +38,12 @@ public class CardServiceImpl implements CardService {
         card.setCvv(generateCvv());
         card.setDate(generateDate());
         card.setNumber(generateNumber());
-        return repository.save(card);
+        repository.save(card);
+        Client client = clientQueryService.getByAccount(
+                card.getAccount().getId()
+        );
+        clientService.addCard(client.getId(), card.getId());
+        return card;
     }
 
     private String generateCvv() {
@@ -68,6 +77,18 @@ public class CardServiceImpl implements CardService {
                 card.getAccount().getBalance().add(amount)
         );
         repository.save(card);
+    }
+
+    @Override
+    @Transactional
+    public void addTransaction(
+            final UUID cardId,
+            final UUID transactionId
+    ) {
+        repository.addTransaction(
+                cardId.toString(),
+                transactionId.toString()
+        );
     }
 
 }
