@@ -13,4 +13,6 @@ public interface CardService {
 
     void add(Card card, BigDecimal amount);
 
+    void addTransaction(UUID cardId, UUID transactionId);
+
 }

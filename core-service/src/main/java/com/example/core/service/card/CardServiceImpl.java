@@ -2,6 +2,7 @@ package com.example.core.service.card;
 
 import com.example.common.domain.model.Card;
 import com.example.common.domain.model.Client;
+import com.example.common.service.card.CardQueryService;
 import com.example.core.service.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,14 @@ public class CardServiceImpl implements CardService {
             final String cvv
     ) {
         return queryService.getByNumberAndDateAndCvv(number, date, cvv);
+    }
+
+    @Override
+    public Card getByNumberAndDate(
+            final String number,
+            final String date
+    ) {
+        return queryService.getByNumberAndDate(number, date);
     }
 
 }
