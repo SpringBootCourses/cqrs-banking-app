@@ -1,4 +1,4 @@
-package com.example.core.service.card;
+package com.example.common.service.card;
 
 import com.example.common.domain.exception.ResourceNotFoundException;
 import com.example.common.domain.model.Card;
@@ -37,6 +37,15 @@ public class CardQueryServiceImpl implements CardQueryService {
             final String cvv
     ) {
         return repository.findByNumberAndDateAndCvv(number, date, cvv)
+                .orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @Override
+    public Card getByNumberAndDate(
+            final String number,
+            final String date
+    ) {
+        return repository.findByNumberAndDate(number, date)
                 .orElseThrow(ResourceNotFoundException::new);
     }
 

@@ -36,6 +36,8 @@ public class AuthServiceImpl implements AuthService {
                 )
         );
         LoginResponseDto response = new LoginResponseDto();
+        Client client = clientService.getByUsername(request.getUsername());
+        response.setId(client.getId());
         response.setAccess(
                 tokenService.create(
                         TokenParameters.builder(

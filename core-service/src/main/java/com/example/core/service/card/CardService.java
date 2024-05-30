@@ -2,7 +2,7 @@ package com.example.core.service.card;
 
 import com.example.common.domain.model.Card;
 import com.example.core.service.CommandService;
-import com.example.core.service.QueryService;
+import com.example.common.service.QueryService;
 
 import java.util.UUID;
 
@@ -20,6 +20,11 @@ public interface CardService
             String number,
             String date,
             String cvv
+    );
+
+    Card getByNumberAndDate(
+            String number,
+            String date
     );
 
 }

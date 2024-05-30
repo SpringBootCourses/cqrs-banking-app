@@ -30,7 +30,15 @@ at `.env.example` file with some predefined environments.
 All services are running in docker containers. To start the application
 you need to run `docker-compose up -d` command.
 
-Application is running on port `8080`.
+**NOTE**: after Debezium connect is started, apply source config manually.
+
+```shell
+cd /on-startup/
+
+sh run.sh
+```
+
+Application is running on port `8080` for backend and `8081` for event handler.
 
 You can access endpoints and make requests to the application.
 

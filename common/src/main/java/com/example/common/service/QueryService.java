@@ -1,4 +1,4 @@
-package com.example.core.service;
+package com.example.common.service;
 
 import java.util.UUID;
 

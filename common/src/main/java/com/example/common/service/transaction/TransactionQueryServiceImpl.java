@@ -1,4 +1,4 @@
-package com.example.core.service.transaction;
+package com.example.common.service.transaction;
 
 import com.example.common.domain.exception.ResourceNotFoundException;
 import com.example.common.domain.model.Transaction;
